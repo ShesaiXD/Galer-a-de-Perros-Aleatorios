@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería de Perros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- Canvas de partículas (huellitas) -->
+    <canvas id="pawsCanvas" aria-hidden="true"></canvas>
+
+    <header class="header">
+        <div class="brand">
+            <span class="logo">🐾</span>
+            <h1 id="t-title">Galería de Perros Aleatorios</h1>
+        </div>
+
+        <div class="actions">
+            <!-- Selector de idioma -->
+            <select id="langSelect" aria-label="Language">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </select>
+
+            <!-- Toggle tema -->
+            <button id="themeToggle" class="icon-btn" title="Tema">
+                🌙
+            </button>
+
+            <!-- Toggle partículas -->
+            <button id="pawsToggle" class="icon-btn" title="Huellitas">
+                🐾
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Controles -->
+        <div class="controls">
+            <label class="sr-only" for="breedSelect">Raza</label>
+            <select id="breedSelect">
+                <option value="">{cualquier_raza}</option>
+            </select>
+
+            <button id="btnDog">🐶 <span id="t-show">Mostrar Perro</span></button>
+
+            <button id="btnHistory">📜 <span id="t-history">Ver Historial</span></button>
+
+            <button id="btnShare" class="secondary">📤 <span id="t-share">Compartir</span></button>
+
+            <a id="btnDownload" class="secondary" download="dog.jpg">⬇️ <span id="t-download">Descargar</span></a>
+        </div>
+
+        <!-- Imagen principal con loader -->
+        <div class="image-box">
+            <div id="loader" class="loader" aria-hidden="true">
+                <div class="paw"></div>
+                <div class="paw"></div>
+                <div class="paw"></div>
+                <p id="t-loading">Cargando perrito...</p>
+            </div>
+            <img id="dogImage" src="" alt="Dog image" />
+        </div>
+
+        <!-- Historial -->
+        <h2 id="t-historyTitle">Historial de Perritos</h2>
+        <div id="historyBox" class="history-box">
+            <p id="t-historyHint">Aquí aparecerán los perritos que ya viste.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p id="t-made">Hecho con ❤️ </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
